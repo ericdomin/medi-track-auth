@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const mediController = require('../controllers/medi')
+const { ensureAuth } = require('../middleware/auth')
 
-router.get('/', mediController.getMedis)
+
+router.get('/',ensureAuth, mediController.getMedis)
 
 router.post('/createMedi', mediController.createMedi)
 

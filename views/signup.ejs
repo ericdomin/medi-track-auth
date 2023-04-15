@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Sign up</title>
+</head>
+<body style="background-image: url('https://res.cloudinary.com/dd8dpaxcm/image/upload/v1681351929/pexels-eva-bronzini-7640904_gfhpgc.jpg');">
+    <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+    
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="card text-center" style="height:500px; width: 500px;">
+            <div class="card-header border-primary">
+              Medi Track
+            </div>
+            <div class="card-body col align-items-center justify-content-center">
+    <form class="mt-5" action="/signup" method="POST">
+        <div class="input-group mb-3">
+        <input class="form-control input-group-text" type="text" name="userName" placeholder="User Name">
+        </div>
+        <div class="input-group mb-3">
+        <input class="form-control input-group-text" type="email" name="email" placeholder="Email">
+        </div>
+        <div class="input-group mb-3">
+        <input class="form-control input-group-text" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="input-group mb-3">
+        <input class="form-control input-group-text" type="password" name="confirmPassword" placeholder="Confirm Password">
+        </div>
+        <div class="d-grid gap-2">
+        <input class="col-6 mb-3 btn btn-outline-primary input-group" type="submit">
+        </div>
+    </form>
+</div>
+    
+<div class="card-footer text-body-secondary">
+  Enjoy!
+</div>
+</div>
+    </div>
+</body>
+</html>

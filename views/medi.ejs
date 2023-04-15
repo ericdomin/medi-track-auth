@@ -69,7 +69,7 @@
                 <section id="pricing" class="bg-light mt-5">
                     <div class="container-lg">
                       <div class="text-center">
-                        <h2>Medication's left <%= left%></h2>
+                        <h2><%= user.userName %> Medication's left <%= left%></h2>
                         <div class="row">
                           <% drug.forEach( el => { %>
                             <div class="col-12 col-lg-4">
@@ -95,7 +95,7 @@
                     </div>
                   </section>
                   <div class="input-group mb-3">
-                    <form action="/createMedi" method='POST'>
+                    <form action="medi/createMedi" method='POST'>
                      <div class="input-group mb-3">
                        <span class="input-group-text" id="inputGroup-sizing-default">Enter Drug</span>
                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="mediItem">
@@ -108,7 +108,7 @@
                    </form>
                     </div>
 
- 
+                    <a href="/logout">Logout</a>
 
     <script src="js/main.js" type="text/javascript"></script>
 </body>

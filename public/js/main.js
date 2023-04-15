@@ -75,7 +75,7 @@ function clientClick(event){
  async function countDown(event){
     const mediId = event.target.parentNode.dataset.id
     try{
-        const response = await fetch('/startTime',{
+        const response = await fetch('medi/startTime',{
             method:'put',
             headers:{'Content-type':'application/json'},
             body:JSON.stringify({
@@ -93,7 +93,7 @@ function clientClick(event){
 async function pauseRunning(){
     const mediId = this.parentNode.dataset.id
     try{
-        const response = await fetch('/notRunning', {
+        const response = await fetch('medi/notRunning', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -113,7 +113,7 @@ async function pauseRunning(){
 async function deleteMedi(){
     const mediId = this.parentNode.dataset.id
     try{
-        const response = await fetch('/deleteMedi', {
+        const response = await fetch('medi/deleteMedi', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -131,7 +131,7 @@ async function deleteMedi(){
 async function markComplete(){
     const mediId = this.parentNode.dataset.id
     try{
-        const response = await fetch('/markComplete', {
+        const response = await fetch('medi/markComplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -152,7 +152,7 @@ async function markComplete(){
 async function markIncomplete(){
     const mediId = this.parentNode.dataset.id
     try{
-        const response = await fetch('/markIncomplete', {
+        const response = await fetch('medi/markIncomplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -170,7 +170,7 @@ async function markIncomplete(){
 async function makeRunning(){
     const mediId = this.parentNode.dataset.id
     try{
-        const response = await fetch('/makeRunning', {
+        const response = await fetch('medi/makeRunning', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({

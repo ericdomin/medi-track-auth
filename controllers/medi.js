@@ -1,21 +1,22 @@
 const Medi = require('../models/Medi')
-
 module.exports = {
     getMedis: async (req,res)=>{
         try{
-            const mediItems = await Medi.find()
-            const itemsLeft = await Medi.countDocuments({completed: false})
+            const mediItems = await Medi.find({userId:req.user.id})
+            //const mediItems = await Medi.find()
+            const itemsLeft = await Medi.countDocuments({userId:req.user.id,completed: false})
+            //const itemsLeft = await Medi.countDocuments({completed: false})
             const time = await Number(Medi.time)
-            res.render('medi.ejs', {drug: mediItems, left: itemsLeft,time:time})
+            res.render('medi.ejs', {drug: mediItems, left: itemsLeft,user: req.user,time:time})
         }catch(err){
             console.log(err)
         }
     },
     createMedi: async (req, res)=>{
         try{
-            await Medi.create({drug: req.body.mediItem, completed: false,time:req.body.time,running:false})
+            await Medi.create({drug: req.body.mediItem, completed: false, userId: req.user.id, time:req.body.time,running:false})
             console.log('Medi has been added!')
-            res.redirect('/')
+            res.redirect('/medi')
         }catch(err){
             console.log(err)
         }

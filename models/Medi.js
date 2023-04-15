@@ -16,8 +16,11 @@ const MediSchema = new mongoose.Schema({
   running:{
     type: Boolean,
     required: true,
+  },
+  userId: {
+    type: String,
+    required: true
   }
- 
 })
 
 module.exports = mongoose.model('Medi', MediSchema)
