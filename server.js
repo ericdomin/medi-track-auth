@@ -9,6 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const mediRoutes = require('./routes/medi')
+const PORT = process.env.PORT || 3030
 
 require('dotenv').config({path: './config/.env'})
 //passport config
@@ -45,7 +46,7 @@ app.use('/medi', mediRoutes)
   // app.use('/', homeRoutes) 
 //app.use('/', mediRoutes)
  
-app.listen(process.env.PORT, ()=>{
+app.listen(PORT, ()=>{
     console.log(`Server is running, you better catch it!`)
 })    
 
